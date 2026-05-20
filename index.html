@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>La Cápsula del Tiempo: 1982-2000</title>
+  <style>
+    * { box-sizing: border-box; scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(120deg, #ffecd2, #fcb69f, #a1c4fd, #c2e9fb);
+      color: #222;
+    }
+    header {
+      min-height: 95vh;
+      background:
+      linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.65)),
+      url("https://images.unsplash.com/photo-1521295121783-8a321d551ad2?auto=format&fit=crop&w=1400&q=80");
+      background-size: cover;
+      background-position: center;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 30px;
+    }
+    header h1 {
+      font-size: 58px;
+      margin: 0;
+      text-shadow: 3px 3px 10px black;
+    }
+    header p {
+      font-size: 23px;
+      max-width: 850px;
+      margin: 20px auto;
+    }
+    .boton {
+      display: inline-block;
+      background: #ffbe0b;
+      color: #111;
+      padding: 14px 25px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      margin: 8px;
+      transition: .3s;
+    }
+    .boton:hover {
+      background: #ff006e;
+      color: white;
+      transform: scale(1.08);
+    }
+    nav {
+      background: #240046;
+      text-align: center;
+      padding: 14px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      margin: 0 10px;
+      padding: 8px 12px;
+      border-radius: 20px;
+    }
+    nav a:hover {
+      background: #ff006e;
+    }
+    section {
+      max-width: 1150px;
+      margin: 35px auto;
+      padding: 30px;
+      background: rgba(255,255,255,.94);
+      border-radius: 25px;
+      box-shadow: 0 8px 22px rgba(0,0,0,.18);
+    }
+    h2 {
+      color: #3a0ca3;
+      border-left: 10px solid #ff006e;
+      padding-left: 14px;
+      font-size: 32px;
+    }
+    h3 { color: #fb5607; }
+    .imagen {
+      width: 100%;
+      max-height: 360px;
+      object-fit: cover;
+      border-radius: 22px;
+      margin: 18px 0;
+      box-shadow: 0 6px 18px rgba(0,0,0,.25);
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: linear-gradient(135deg, #ffffff, #edf6f9);
+      border-radius: 20px;
+      padding: 22px;
+      border-left: 8px solid #00b4d8;
+      box-shadow: 0 5px 14px rgba(0,0,0,.12);
+      transition: .3s;
+    }
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 22px rgba(0,0,0,.22);
+    }
+    .numero {
+      font-size: 45px;
+      font-weight: bold;
+      color: #ff006e;
+    }
+    details {
+      background: #f1f3ff;
+      border-radius: 15px;
+      padding: 15px;
+      margin: 12px 0;
+      border-left: 6px solid #8338ec;
+      cursor: pointer;
+    }
+    summary {
+      font-weight: bold;
+      color: #3a0ca3;
+      font-size: 18px;
+    }
+    .timeline {
+      position: relative;
+      border-left: 6px solid #ff006e;
+      padding-left: 25px;
+    }
+    .evento {
+      background: #fff0f3;
+      margin: 18px 0;
+      padding: 18px;
+      border-radius: 18px;
+      border-left: 6px solid #fb5607;
+      transition: .3s;
+    }
+    .evento:hover {
+      background: #ffe5ec;
+      transform: scale(1.02);
+    }
+    .quiz {
+      background: linear-gradient(135deg, #3a0ca3, #4361ee);
+      color: white;
+      padding: 25px;
+      border-radius: 20px;
+      margin-top: 20px;
+    }
+    button {
+      background: #ffbe0b;
+      border: none;
+      padding: 12px 18px;
+      border-radius: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      margin: 6px;
+    }
+    button:hover {
+      background: #ff006e;
+      color: white;
+    }
+    .respuesta {
+      display: none;
+      background: white;
+      color: #222;
+      padding: 15px;
+      border-radius: 15px;
+      margin-top: 12px;
+    }
+    .fuentes li {
+      margin-bottom: 10px;
+    }
+    footer {
+      background: linear-gradient(135deg, #240046, #ff006e);
+      color: white;
+      text-align: center;
+      padding: 28px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div>
+    <h1>La Cápsula del Tiempo</h1>
+    <p>1982-2000: El México que nos hizo actuales</p>
+    <p>Sitio web documental sobre la transformación de México y el mundo.</p>
+    <a href="#objetivo" class="boton">Comenzar recorrido</a>
+    <a href="#linea" class="boton">Ver línea del tiempo</a>
+  </div>
+</header>
+<nav>
+  <a href="#objetivo">Objetivo</a>
+  <a href="#global">Global</a>
+  <a href="#tecnologia">Tecnología</a>
+  <a href="#mexico">Crisis</a>
+  <a href="#democracia">Democracia</a>
+  <a href="#linea">Tiempo</a>
+  <a href="#fuentes">Fuentes</a>
+</nav>
+<section id="objetivo">
+  <h2>Objetivo del Proyecto</h2>
+  <p>
+    Este sitio web analiza el proceso de transición de México del régimen autoritario a la alternancia democrática,
+    dentro del nuevo orden mundial marcado por el neoliberalismo, la globalización y el fin de la Guerra Fría.
+  </p>
+  <p>
+    También vincula los cambios económicos, tecnológicos y políticos de los años ochenta y noventa con la realidad
+    mexicana actual.
+  </p>
+  <div class="grid">
+    <div class="card"><div class="numero">01</div><h3>Escenario de 1989-1991</h3><p>Fin de la Guerra Fría, disolución de la URSS y caida del muro de berlin.</p></div>
+    <div class="card"><div class="numero">02</div><h3>Tecnología</h3><p>De la guerra a los electrodomesticos.</p></div>
+    <div class="card"><div class="numero">03</div><h3>Crisis mexicana</h3><p>Deuda, privatización y movimientos sociales.</p></div>
+    <div class="card"><div class="numero">04</div><h3>Democracia</h3><p>Fractura del PRI, PRD, PAN y alternancia del 2000.</p></div>
+  </div>
+</section>
+<section id="global">
+  <h2>Sección 1: El Escenario Global</h2>
+  <img class="imagen" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/West_and_East_Germans_at_the_Brandenburg_Gate_in_1989.jpg/1200px-West_and_East_Germans_at_the_Brandenburg_Gate_in_1989.jpg">
+  <div class="card">
+    <h3>Caída del Muro de Berlín y fin del socialismo europeo</h3>
+    <p>
+      La caída del Muro de Berlín en 1989 representó el debilitamiento del bloque socialista y el inicio de una nueva
+      etapa mundial. Poco después, la Unión Soviética desapareció, dejando a Estados Unidos como la principal potencia.
+    </p>
+  </div>
+  <details>
+    <summary>¿Cómo afectó esto al comercio global?</summary>
+    <p>
+      El comercio internacional se expandió porque muchos países comenzaron a abrir sus economías, reducir barreras
+      comerciales y participar más activamente en el mercado mundial.
+    </p>
+  </details>
+    <details>
+    <summary>¿Comó fue el aspecto social y politico?</summary>
+    <p>
+Tras la caída de la Unión Soviética, muchos países adoptaron ideas capitalistas y el modelo liberal impulsado por Estados Unidos, evolucionando después hacia políticas neoliberales. Los antiguos países soviéticos y sus aliados cambiaron de distintas maneras: algunos se abrieron a la influencia estadounidense y al capitalismo, mientras que otros mantuvieron sistemas socialistas y un mayor aislamiento, como Cuba y Corea del Norte.
+    </p>
+  </details>
+  <details>
+    <summary>¿Qué relación tiene con el neoliberalismo?</summary>
+    <p>
+      Una vez Estados Unidos se volvio la principal potencia mundial, otros paises empezaron a copiar su modelo economico,
+       El neoliberalismo promovió la reducción del papel del Estado, la privatización de empresas públicas,
+      el libre comercio y la apertura económica.
+    </p>
+  </details>
+</section>
+<section id="tecnologia">
+  <h2>Sección 2: La Tecno-Revolución</h2>
+  <img class="imagen" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Intel_80486DX2_bottom.jpg/1024px-Intel_80486DX2_bottom.jpg">
+  <div class="card">
+    <h3>De la Guerra Fría a internet</h3>
+    <p>
+      Mucha de la tecnología desarrollada durante la Guerra Fría, como satélites, computadoras y sistemas de comunicación,
+      se integró a la vida cotidiana. En los años noventa, internet comenzó a transformar la forma en que
+      las personas accedían a información y se comunicaban.
+    </p>
+  </div>
+  <div class="grid">
+    <div class="card"><h3>🚀 Carrera espacial</h3><p>Iniciada por la competencia entre Estados Unidos y la URSS, la URSS mandó a Yuri Gagarin al espacio en 1960, Estados Unidos respondiendo con el Apolo 11, llevando a Neil Armstrong a la luna en 1969.</p></div>
+    <div class="card"><h3>🌐 Internet</h3><p>Originandose como una forma de comunicación militar entre bases estadounidenses,
+      su uso después de la guerra permitio un mayor acceso a la información y apoyo a la globalización.</p></div>
+      <div class="card"><h3>💻 Computadoras</h3><p>Durante la Guerra Fría se desarrollaron el internet y las computadoras modernas; estas últimas se volvieron más pequeñas y comerciales gracias a los circuitos integrados y transistores.</p></div>
+    </div>
+</section>
+<section id="mexico">
+  <h2>Sección 3: México en Crisis y Apertura</h2>
+  <img class="imagen" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Zocalo_De_Ciudad_De_Mexico_1997.jpg/1200px-Zocalo_De_Ciudad_De_Mexico_1997.jpg">
+  <div class="card">
+    <h3>Crisis de 1982 y 1994</h3>
+    <p>
+      En 1982 México enfrentó una fuerte crisis económica relacionada con la deuda externa y la dependencia petrolera.
+      En 1994 ocurrió otra crisis financiera conocida como el “error de diciembre”.
+    </p>
+  </div>
+  <details>
+    <summary>Privatización de empresas paraestatales</summary>
+    <p>
+Dada la adaptación del modelo neoliberal en México, desde 1982 se empezó un proceso de privatización de anteriores empresas públicas con el fin del control de gastos del estado,
+Se aprobó la reprivatización de la banca y empresas como Telmex quedaron a manos de empresarios.      
+    </p>
+  </details>
+  <details>
+    <summary>TLCAN y apertura comercial</summary>
+    <p>
+      El TLCAN entró en vigor en 1994 y conectó más directamente la economía mexicana con Estados Unidos y Canadá.
+      Esto impulsó exportaciones, pero también aumentó la competencia para productores nacionales.
+    </p>
+  </details>
+  <details>
+    <summary>EZLN como respuesta social</summary>
+    <p>
+    El movimiento indigena del EZLN fue una respuesta a los continuos malos tratos por parte del gobierno hacia los indignas, permitiendo que se les robaran sus tierras y la falta de servicios,
+     culmino en un levantamiento el 1 de enero de 1994. El levantamiento del EZLN mostró que el modelo económico no beneficiaba por igual a todos los sectores.
+      Denunció pobreza, marginación indígena y desigualdad social.
+    </p>
+  </details>
+</section>
+<section id="democracia">
+  <h2>Sección 4: La Nueva Democracia</h2>
+  <img class="imagen" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Flag_of_Mexico_%281934-1968%29.svg/1200px-Flag_of_Mexico_%281934-1968%29.svg.png">
+  <div class="card">
+    <h3>Fractura del PRI y elección de 1988</h3>
+    <p>
+      En 1988, la elección presidencial fue muy cuestionada. La llamada “caída del sistema” aumentó la desconfianza
+      en las instituciones electorales y abrió paso a una mayor exigencia democrática.
+    </p>
+  </div>
+  <div class="card">
+    <h3>PRD, PAN y alternancia</h3>
+    <p>
+      El PRD surgió como una fuerza política importante de izquierda, mientras el PAN creció como oposición.
+      En el año 2000, Vicente Fox ganó la presidencia y terminó con más de 70 años de dominio presidencial del PRI.
+    </p>
+  </div>
+  <div class="quiz">
+    <h3>Pregunta interactiva</h3>
+    <p>¿Qué cambió realmente con la alternancia del año 2000?</p>
+    <button onclick="mostrarRespuesta()">Ver respuesta</button>
+    <div id="respuesta" class="respuesta">
+     Abrio los ojos a los méxicanos de su influencia en los procesos electorales, sin mencionar que marco el final de la racha de 71 años continuos de gobierno por parte del PRI.
+      Sin embargo, muchos problemas sociales y económicos continuaron, como la desigualdad, la pobreza y la corrupción.
+    </div>
+  </div>
+</section>
+<section id="linea">
+  <h2>Línea del Tiempo Interactiva</h2>
+  <div class="timeline">
+    <div class="evento"><strong>1982:</strong> Crisis económica, deuda externa y cambio de modelo económico.</div>
+    <div class="evento"><strong>1988:</strong> Elección cuestionada y fractura del PRI.</div>
+    <div class="evento"><strong>1989:</strong> Caída del Muro de Berlín.</div>
+    <div class="evento"><strong>1991:</strong> Fin de la Unión Soviética.</div>
+    <div class="evento"><strong>1994:</strong> TLCAN, EZLN y crisis económica.</div>
+    <div class="evento"><strong>2000:</strong> Alternancia presidencial con Vicente Fox.</div>
+  </div>
+</section>
+<section id="conclusion">
+  <h2>Conclusión Crítica</h2>
+  <p>
+    El México actual se entiende mejor al observar los cambios ocurridos entre 1982 y 2000. En esos años se consolidó
+    un modelo económico basado en la apertura comercial, la privatización y la integración al mercado global.
+  </p>
+  <p>
+    Aunque estos cambios modernizaron algunos sectores, también aumentaron desigualdades y dejaron fuera a muchas
+    comunidades. Por eso surgieron movimientos sociales como el EZLN.
+  </p>
+  <p>
+    En lo político, la alternancia del año 2000 fue un avance democrático porque demostró que el partido en el poder
+    podía ser sustituido mediante elecciones. Sin embargo, la democracia no terminó ahí: todavía exige participación
+    ciudadana, transparencia y justicia social.
+  </p>
+</section>
+<section id="fuentes">
+  <h2>Bitácora de Investigación y Fuentes</h2>
+  <ul class="fuentes">
+    <li>Menchaca Espinoza, F. J., & Gutiérrez Grageda, B. E. (2025). Conciencia histórica 3. Serie Perspectivas (1.ª ed.). Patria Educación..</li>
+    <li>Banco Europeo para la Reconstrucción y el Desarrollo. (1991). Transition report: Economic transition in Eastern Europe and the former Soviet Union. EBRD.</li>
+    <li>Documentos sobre el TLCAN, neoliberalismo y crisis económicas de México.</li>
+    <li>Material sobre el EZLN, transición democrática y elecciones de 1988 y 2000.</li>
+    <li> Ontiveros, V. (2019, agosto 25). El PRI, 70 años dominando México.</li>
+  </ul>
+</section>
+<footer>
+  <p><strong>La Cápsula del Tiempo: 1982-2000</strong></p>
+  <p>El México que nos hizo actuales | Proyecto final de Conciencia Histórica 3</p>
+</footer>
+<script>
+  function mostrarRespuesta() {
+    var respuesta = document.getElementById("respuesta");
+    if (respuesta.style.display === "block") {
+      respuesta.style.display = "none";
+    } else {
+      respuesta.style.display = "block";
+    }
+  }
+</script>
+</body>
+</html>
